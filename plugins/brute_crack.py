@@ -75,7 +75,7 @@ class brute_crack(object):
 	 		dns_server_ = random.choice(dns_server)
 			my_resolver = dns.resolver.Resolver()
 			my_resolver.nameservers = [dns_server_]
-			ip = str(dns.resolver.query(sub_domain,"A")[0])
+			ip = str(my_resolver.query(sub_domain,"A")[0])
 			if filter_ip(ip):
 				print "[num]%s[dns]%s[domain]%s[ip]%s" % (num,dns_server_,sub_domain,ip)
 				self.sub_domain_list.append(sub_domain)
